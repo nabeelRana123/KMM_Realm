@@ -6,14 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
-import com.dev.kmmrealm.Greeting
+import com.dev.kmmrealm.EmployeeAppFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val greeting = Greeting()
-        greeting.initializeDatabase()
+        val appFactory = EmployeeAppFactory()
+        appFactory.initialize()
         
         setContent {
             MyApplicationTheme {
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    greeting.EmployeeManagementApp()
+                    appFactory.CreateApp()
                 }
             }
         }

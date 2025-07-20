@@ -16,10 +16,10 @@ val LocalNAtiveViewFactory = staticCompositionLocalOf<NativeViewFactory> {
 fun getComposeViewController(nativeViewFactory: NativeViewFactory) =
     ComposeUIViewController {
         CompositionLocalProvider(LocalNAtiveViewFactory provides nativeViewFactory) {
-            val greeting = Greeting()
-            greeting.initializeDatabase()
-            // instantiate your shared VM
-            greeting.EmployeeManagementApp()
+            val appFactory = EmployeeAppFactory()
+            appFactory.initialize()
+            // Create the main employee management app
+            appFactory.CreateApp()
         }
     }
 
